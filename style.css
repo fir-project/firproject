@@ -1,0 +1,205 @@
+/* FIR — firproject.org
+   Plain HTML + CSS.
+   Deliberately: no gradients, no rounded corners, no shadows,
+   no transitions, no JavaScript. Monospace, left-aligned, white. */
+
+:root {
+  --fg: #111111;
+  --muted: #555555;
+  --green: #14663a;
+  --line: #999999;
+  --line-soft: #cccccc;
+  --code-bg: #f4f4f4;
+  --th-bg: #efefef;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--fg);
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono",
+               Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+a { color: var(--green); }
+a:hover { color: var(--fg); }
+a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+.wrap {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ---- header ---- */
+
+header { border-bottom: 1px solid var(--line); }
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.brand {
+  color: var(--fg);
+  font-weight: bold;
+  text-decoration: none;
+}
+.brand:hover { color: var(--green); }
+.brand svg {
+  width: 13px;
+  height: 17px;
+  fill: var(--green);
+  vertical-align: -3px;
+  margin-right: 2px;
+}
+
+nav ul {
+  display: flex;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+nav a {
+  color: var(--fg);
+  text-decoration: none;
+}
+nav a:hover { color: var(--green); }
+
+/* ---- hero / intro ---- */
+
+.ascii {
+  margin: 2rem 0 1.2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 15px;
+  line-height: 1.15;
+  overflow-x: auto;
+}
+
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.2rem;
+}
+
+.tagline {
+  color: var(--green);
+  font-weight: bold;
+  margin: 0 0 1.6rem;
+}
+
+p { margin: 0 0 1.1rem; max-width: 74ch; }
+
+/* ---- headings ---- */
+
+h2 {
+  font-size: 1.15rem;
+  margin: 2.6rem 0 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 1.6rem 0 0.4rem;
+}
+
+/* ---- table ---- */
+
+.tbl-wrap { overflow-x: auto; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+th, td {
+  border: 1px solid var(--line-soft);
+  padding: 0.3rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--th-bg);
+  font-weight: bold;
+  width: 13rem;
+  white-space: nowrap;
+}
+
+/* ---- code / pre ---- */
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--line-soft);
+  padding: 0.8rem 1rem;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+/* ascii art must not look like a code block */
+pre.ascii {
+  background: none;
+  border: 0;
+  padding: 0;
+  line-height: 1.15;
+}
+
+/* ---- news ---- */
+
+.news {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.news li { margin-bottom: 1.4rem; }
+
+.news time {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.news h3 { margin: 0.1rem 0 0.3rem; }
+
+.news p { margin: 0; }
+
+/* ---- links row ---- */
+
+.links { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+.links a { text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+
+/* ---- footer ---- */
+
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 3rem;
+  padding: 1.2rem 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+footer p { margin: 0 0 0.5rem; }
+
+/* ---- responsive ---- */
+
+@media (max-width: 640px) {
+  .bar { flex-direction: column; align-items: flex-start; }
+  h1 { font-size: 1.8rem; }
+  .ascii { font-size: 11px; }
+  th { width: auto; white-space: normal; }
+}

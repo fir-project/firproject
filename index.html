@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIR — Free. Independent. Reproducible.</title>
+  <meta name="description" content="FIR is a small, minimal and opinionated independent Unix-like operating system with reproducible builds, inspired by Nix. Free software, GPLv3.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2 L24 14 L8 14 Z M16 11 L26 25 L6 25 Z M16 21 L29 36 L3 36 Z M14 36 H18 V40 H14 Z"/></svg>
+      firproject
+    </a>
+    <!-- Replace href="#" once those pages exist -->
+    <nav>
+      <ul>
+        <li><a href="/">[home]</a></li>
+        <li><a href="#status">[news]</a></li>
+        <li><a href="#">[download]</a></li>
+        <li><a href="#">[docs]</a></li>
+        <li><a href="https://github.com/firproject">[github]</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <pre class="ascii" aria-hidden="true">        /\
+       /  \
+      /____\
+     /\    /\
+    /  \  /  \
+   /____\/____\
+  /\          /\
+ /  \________/  \
+/________________\
+        ||</pre>
+
+  <h1>FIR</h1>
+  <p class="tagline">Free. Independent. Reproducible.</p>
+
+  <p>FIR is a small, independent Unix-like operating system. Its package system is
+  inspired by <a href="https://nixos.org">Nix</a>: you describe the system you want,
+  and FIR builds it the same way every time.</p>
+
+  <p>The base system is deliberately small — a set of core utilities, a window
+  manager for Xorg, and the pieces needed to get to a shell and work. FIR is
+  minimal by default and opinionated on purpose: it makes a few firm choices,
+  documents them, and does not offer four overlapping ways to do the same thing.</p>
+
+  <p>FIR is free software, released under the GNU GPLv3. Development happens in
+  the open. (Status: pre-alpha — there is no installable release yet.)</p>
+
+  <h2><span aria-hidden="true">## </span>At a glance</h2>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Name</th><td>FIR</td></tr>
+    <tr><th>Meaning</th><td>Free, Independent, Reproducible</td></tr>
+    <tr><th>Type</th><td>Independent Unix-like operating system</td></tr>
+    <tr><th>Inspired by</th><td><a href="https://nixos.org">Nix</a></td></tr>
+    <!-- Update these three once the decisions are made -->
+    <tr><th>Kernel</th><td>TBD</td></tr>
+    <tr><th>Init</th><td>TBD</td></tr>
+    <tr><th>libc</th><td>TBD</td></tr>
+    <tr><th>Package system</th><td>planned — declarative, reproducible</td></tr>
+    <tr><th>Window manager</th><td>in development (Xorg)</td></tr>
+    <tr><th>License</th><td>GPL-3.0-or-later</td></tr>
+    <tr><th>Status</th><td>pre-alpha, no ISO yet</td></tr>
+    <tr><th>Source</th><td><a href="https://github.com/firproject">github.com/firproject</a></td></tr>
+  </table>
+  </div>
+
+  <h2><span aria-hidden="true">## </span>Principles</h2>
+
+  <h3>F — Free</h3>
+  <p>You may run FIR, study it, share it and modify it. Every part of the system
+  ships under the GNU GPLv3. No telemetry, no accounts, no lock-in.</p>
+
+  <h3>I — Independent</h3>
+  <!-- Verify this claim still holds once the kernel/base decision is final -->
+  <p>FIR is built and maintained by its own contributors. No company and no parent
+  distribution decides where it goes — inspired by Nix, owned by the people who
+  run it.</p>
+
+  <h3>R — Reproducible</h3>
+  <p>Same inputs, same outputs, bit for bit. Anyone can rebuild the system from
+  source and verify it matches what everyone else got.</p>
+
+  <h2><span aria-hidden="true">## </span>What's in the box</h2>
+
+  <h3>Core utilities</h3>
+  <p>A compact set of Unix utilities. Each one does one thing and composes with
+  pipes. Small enough to read in an afternoon.</p>
+
+  <h3>Window manager</h3>
+  <p>A simple window manager for Xorg: one binary, one config file, no daemon you
+  did not ask for.</p>
+
+  <h3>Package system</h3>
+  <p>Declarative and reproducible. Pin your inputs, build the closure, get the
+  same system every time.</p>
+
+  <h2><span aria-hidden="true">## </span>Example session</h2>
+  <p><em>Planned command interface — nothing to run yet.</em></p>
+  <pre>$ fir build ./system.nix   # evaluate and build
+$ fir switch               # activate the build
+$ fir rollback             # go back; reproducible, so this is safe</pre>
+
+  <h2 id="status"><span aria-hidden="true">## </span>Status</h2>
+  <ul class="news">
+    <li>
+      <time datetime="2026-10">October 2026</time>
+      <h3>FIR gets a name</h3>
+      <p>Name, license (GPLv3) and website are settled; the repository opens next.
+      There is no installable release yet — watch the repo to follow along.</p>
+    </li>
+    <!-- Add future entries here:
+    <li>
+      <time datetime="YYYY-MM-DD">Month YYYY</time>
+      <h3>Post title</h3>
+      <p>Short description with a <a href="#">link to the full post</a>.</p>
+    </li>
+    -->
+  </ul>
+
+  <h2><span aria-hidden="true">## </span>Get involved</h2>
+  <p>FIR is built in the open. Code, issues and design discussion all live on
+  GitHub — that is the place to start. Chat channels and contributing docs will
+  be linked here when they exist.</p>
+  <p class="links">
+    <a href="https://github.com/firproject">[github]</a>
+    <!-- Enable when they exist:
+    <a href="#">[contributing]</a>
+    <a href="#">[irc / matrix]</a>
+    -->
+  </p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Copyright &copy; 2026 firproject contributors. FIR is free software,
+    licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU
+    General Public License v3 or later</a>.</p>
+    <p>This site is plain HTML — no JavaScript, no cookies, no trackers.</p>
+    <!-- Keep only if FIR ends up using the Linux kernel:
+    <p>Linux&reg; is a registered trademark of Linus Torvalds.</p>
+    -->
+  </div>
+</footer>
+
+</body>
+</html>
