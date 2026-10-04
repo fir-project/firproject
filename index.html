@@ -3,27 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>FIR — Free. Independent. Reproducible.</title>
-  <meta name="description" content="FIR is a small, minimal and opinionated independent Unix-like operating system with reproducible builds, inspired by Nix. Free software, GPLv3.">
-  <meta name="theme-color" content="#ffffff">
+
+  <meta name="description"
+        content="FIR is a small, independent and opinionated Unix-like operating system built around simplicity, reproducibility and user control.">
+
+  <meta name="theme-color" content="#11120f">
+  <meta name="color-scheme" content="dark light">
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
   <div class="wrap bar">
-    <a class="brand" href="./">
-      <svg viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2 L24 14 L8 14 Z M16 11 L26 25 L6 25 Z M16 21 L29 36 L3 36 Z M14 36 H18 V40 H14 Z"/></svg>
+    <a class="brand" href="./" aria-label="FIR home">
+      <svg viewBox="0 0 32 40" aria-hidden="true">
+        <path d="M16 2 L24 14 L8 14 Z
+                 M16 11 L26 25 L6 25 Z
+                 M16 21 L29 36 L3 36 Z
+                 M14 36 H18 V40 H14 Z"/>
+      </svg>
       firproject
     </a>
-    <!-- Replace href="#" once those pages exist -->
-    <nav>
+
+    <nav aria-label="Main navigation">
       <ul>
         <li><a href="./">[home]</a></li>
-        <li><a href="#status">[news]</a></li>
-        <li><a href="#">[download]</a></li>
-        <li><a href="#">[docs]</a></li>
+        <li><a href="#status">[status]</a></li>
+        <li><a href="#principles">[principles]</a></li>
+        <li><a href="#involved">[contribute]</a></li>
         <li><a href="https://github.com/fir-project">[github]</a></li>
       </ul>
     </nav>
@@ -32,7 +44,8 @@
 
 <main class="wrap">
 
-  <pre class="ascii" aria-hidden="true">        /\
+  <section class="hero">
+    <pre class="ascii" aria-hidden="true">        /\
        /  \
       /____\
      /\    /\
@@ -43,116 +56,306 @@
 /________________\
         ||</pre>
 
-  <h1>FIR</h1>
-  <p class="tagline">Free. Independent. Reproducible.</p>
+    <p class="eyebrow">AN INDEPENDENT UNIX-LIKE SYSTEM</p>
 
-  <p>FIR is a small, independent Unix-like operating system. Its package system is
-  inspired by <a href="https://nixos.org">Nix</a>: you describe the system you want,
-  and FIR builds it the same way every time.</p>
+    <h1>FIR</h1>
 
-  <p>The base system is deliberately small — a set of core utilities, a window
-  manager for Xorg, and the pieces needed to get to a shell and work. FIR is
-  minimal by default and opinionated on purpose: it makes a few firm choices,
-  documents them, and does not offer four overlapping ways to do the same thing.</p>
+    <p class="tagline">Free. Independent. Reproducible.</p>
 
-  <p>FIR is free software, released under the GNU GPLv3. Development happens in
-  the open. (Status: pre-alpha — there is no installable release yet.)</p>
+    <p class="lead">
+      A small, opinionated operating system built around simple software,
+      reproducible systems and giving the user control.
+    </p>
 
-  <h2><span aria-hidden="true">## </span>At a glance</h2>
-  <div class="tbl-wrap">
-  <table>
-    <tr><th>Name</th><td>FIR</td></tr>
-    <tr><th>Meaning</th><td>Free, Independent, Reproducible</td></tr>
-    <tr><th>Type</th><td>Independent Unix-like operating system</td></tr>
-    <tr><th>Inspired by</th><td><a href="https://nixos.org">Nix</a></td></tr>
-    <!-- Update these three once the decisions are made -->
-    <tr><th>Kernel</th><td>TBD</td></tr>
-    <tr><th>Init</th><td>TBD</td></tr>
-    <tr><th>libc</th><td>TBD</td></tr>
-    <tr><th>Package system</th><td>planned — declarative, reproducible</td></tr>
-    <tr><th>Window manager</th><td>in development (Xorg)</td></tr>
-    <tr><th>License</th><td>GPL-3.0-or-later</td></tr>
-    <tr><th>Status</th><td>pre-alpha, no ISO yet</td></tr>
-    <tr><th>Source</th><td><a href="https://github.com/firproject">github.com/firproject</a></td></tr>
-  </table>
-  </div>
+    <p class="hero-links">
+      <a class="button" href="https://github.com/fir-project">View source</a>
+      <a class="button secondary" href="#status">Project status</a>
+    </p>
+  </section>
 
-  <h2><span aria-hidden="true">## </span>Principles</h2>
 
-  <h3>F — Free</h3>
-  <p>You may run FIR, study it, share it and modify it. Every part of the system
-  ships under the GNU GPLv3. No telemetry, no accounts, no lock-in.</p>
+  <section>
+    <p>
+      FIR takes inspiration from systems such as
+      <a href="https://nixos.org">NixOS</a>, while following its own path.
+      The system is configured declaratively with <code>config.fir</code> and
+      built from explicit inputs.
+    </p>
 
-  <h3>I — Independent</h3>
-  <!-- Verify this claim still holds once the kernel/base decision is final -->
-  <p>FIR is built and maintained by its own contributors. No company and no parent
-  distribution decides where it goes — inspired by Nix, owned by the people who
-  run it.</p>
+    <p>
+      FIR is intentionally opinionated. It chooses sensible defaults instead
+      of presenting five different ways to accomplish the same thing, while
+      still allowing users to change those decisions when they want to.
+    </p>
 
-  <h3>R — Reproducible</h3>
-  <p>Same inputs, same outputs, bit for bit. Anyone can rebuild the system from
-  source and verify it matches what everyone else got.</p>
+    <p>
+      The project follows <strong>KISS</strong>: keep the system understandable,
+      avoid unnecessary abstraction, and build small components that do their
+      jobs well.
+    </p>
+  </section>
 
-  <h2><span aria-hidden="true">## </span>What's in the box</h2>
 
-  <h3>Core utilities</h3>
-  <p>A compact set of Unix utilities. Each one does one thing and composes with
-  pipes. Small enough to read in an afternoon.</p>
+  <section>
+    <h2 id="at-a-glance"><span aria-hidden="true">## </span>At a glance</h2>
 
-  <h3>Window manager</h3>
-  <p>A simple window manager for Xorg: one binary, one config file, no daemon you
-  did not ask for.</p>
+    <div class="tbl-wrap">
+      <table>
+        <tbody>
+          <tr>
+            <th scope="row">Name</th>
+            <td>FIR</td>
+          </tr>
+          <tr>
+            <th scope="row">Meaning</th>
+            <td>Free, Independent, Reproducible</td>
+          </tr>
+          <tr>
+            <th scope="row">Type</th>
+            <td>Independent Unix-like operating system</td>
+          </tr>
+          <tr>
+            <th scope="row">Configuration</th>
+            <td><code>config.fir</code></td>
+          </tr>
+          <tr>
+            <th scope="row">Kernel</th>
+            <td>TBD</td>
+          </tr>
+          <tr>
+            <th scope="row">Init</th>
+            <td><a href="https://github.com/fir-project/fern">Fern</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Core utilities</th>
+            <td><a href="https://github.com/fir-project/fir-utils">fir-utils</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Window manager</th>
+            <td>In development · Xorg</td>
+          </tr>
+          <tr>
+            <th scope="row">Package system</th>
+            <td>Planned · declarative and reproducible</td>
+          </tr>
+          <tr>
+            <th scope="row">License</th>
+            <td>GPL-3.0-or-later</td>
+          </tr>
+          <tr>
+            <th scope="row">Status</th>
+            <td><span class="status">● pre-alpha</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-  <h3>Package system</h3>
-  <p>Declarative and reproducible. Pin your inputs, build the closure, get the
-  same system every time.</p>
 
-  <h2><span aria-hidden="true">## </span>Example session</h2>
-  <p><em>Planned command interface — nothing to run yet.</em></p>
-  <pre>$ fir build ./system.nix   # evaluate and build
-$ fir switch               # activate the build
-$ fir rollback             # go back; reproducible, so this is safe</pre>
+  <section id="principles">
+    <h2><span aria-hidden="true">## </span>Principles</h2>
 
-  <h2 id="status"><span aria-hidden="true">## </span>Status</h2>
-  <ul class="news">
-    <li>
-      <time datetime="2026-10">October 2026</time>
-      <h3>FIR gets a name</h3>
-      <p>Name, license (GPLv3) and website are settled; the repository opens next.
-      There is no installable release yet — watch the repo to follow along.</p>
-    </li>
-    <!-- Add future entries here:
-    <li>
-      <time datetime="YYYY-MM-DD">Month YYYY</time>
-      <h3>Post title</h3>
-      <p>Short description with a <a href="#">link to the full post</a>.</p>
-    </li>
-    -->
-  </ul>
+    <div class="principles">
 
-  <h2><span aria-hidden="true">## </span>Get involved</h2>
-  <p>FIR is built in the open. Code, issues and design discussion all live on
-  GitHub — that is the place to start. Chat channels and contributing docs will
-  be linked here when they exist.</p>
-  <p class="links">
-    <a href="https://github.com/fir-project">[github]</a>
-    <!-- Enable when they exist:
-    <a href="#">[contributing]</a>
-    <a href="#">[irc / matrix]</a>
-    -->
-  </p>
+      <article>
+        <h3><span>F</span> · Free</h3>
+        <p>
+          FIR is free software. The system is developed in the open and aims
+          to give users the freedom to study, modify, share and run the
+          software they depend on.
+        </p>
+      </article>
+
+      <article>
+        <h3><span>I</span> · Independent</h3>
+        <p>
+          FIR is its own project, not a downstream distribution or a product
+          controlled by a company. Its direction is decided by its
+          contributors and users.
+        </p>
+      </article>
+
+      <article>
+        <h3><span>R</span> · Reproducible</h3>
+        <p>
+          The system is designed so that its configuration and build inputs
+          can be described explicitly and rebuilt consistently. Reproducibility
+          is a design goal, not an afterthought.
+        </p>
+      </article>
+
+      <article>
+        <h3><span>K</span> · Keep it simple</h3>
+        <p>
+          FIR prefers small programs, straightforward interfaces and
+          understandable implementations. Complexity needs a reason to exist.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+
+  <section>
+    <h2><span aria-hidden="true">## </span>What's in the box</h2>
+
+    <h3>fir-utils</h3>
+    <p>
+      A compact collection of essential Unix utilities such as
+      <code>ls</code>, <code>cat</code>, <code>cp</code>, <code>mv</code>,
+      <code>rm</code>, <code>mkdir</code> and friends.
+      Small programs, sensible defaults, and no kitchen sink.
+    </p>
+
+    <h3>Fern</h3>
+    <p>
+      FIR's init and service manager. Small, straightforward and responsible
+      for one thing: getting services running and keeping them running.
+    </p>
+
+    <h3>Window manager</h3>
+    <p>
+      A simple Xorg window manager. One program, a small configuration,
+      and no unnecessary machinery.
+    </p>
+
+    <h3>Package system</h3>
+    <p>
+      Declarative system configuration combined with an imperative interface
+      for when you simply need a package right now. The goal is reproducibility
+      without making everyday use painful.
+    </p>
+  </section>
+
+
+  <section>
+    <h2><span aria-hidden="true">## </span>Configuration</h2>
+
+    <p>
+      FIR's system configuration lives in <code>config.fir</code>.
+      The format is intentionally small: structured enough to describe a
+      system, but simple enough that you can understand the parser.
+    </p>
+
+    <pre><code>system {
+    hostname = "firbox"
+
+    packages {
+        global = [
+            "gcc"
+            "make"
+            "vim"
+            "git"
+        ]
+
+        user = [
+            "firefox"
+            "mpv"
+        ]
+    }
+
+    defaults {
+        ls.long = true
+    }
+}</code></pre>
+
+    <p>
+      The configuration describes what you want. FIR takes care of building
+      and activating it.
+    </p>
+  </section>
+
+
+  <section>
+    <h2><span aria-hidden="true">## </span>Build, then switch</h2>
+
+    <p>
+      FIR is designed to be stubborn about changing a working system.
+      A failed build should not leave the machine half-switched into an
+      unknown state.
+    </p>
+
+    <pre><code>$ fir build
+
+$ fir switch
+building configuration...
+verifying build...
+activating generation 12
+
+$ fir rollback
+activating generation 11</code></pre>
+
+    <p>
+      <code>--force</code> exists for situations where you explicitly want
+      to bypass a safety check. FIR assumes that if you are going to do
+      something dangerous, you should at least mean it.
+    </p>
+  </section>
+
+
+  <section id="status">
+    <h2><span aria-hidden="true">## </span>Status</h2>
+
+    <div class="notice">
+      <strong>Pre-alpha</strong>
+      <p>
+        FIR is very early in development. There is currently no installable
+        release or ISO.
+      </p>
+    </div>
+
+    <ul class="news">
+      <li>
+        <time datetime="2026-10">October 2026</time>
+        <h3>FIR gets a name</h3>
+        <p>
+          FIR is officially <strong>Free, Independent, Reproducible</strong>.
+          The project repository and website are now public.
+        </p>
+      </li>
+
+      <li>
+        <time datetime="2026-10">October 2026</time>
+        <h3>The pieces begin</h3>
+        <p>
+          Early work begins on FIR's core components, including
+          <code>fir-utils</code>, Fern and the Xorg window manager.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+
+  <section id="involved">
+    <h2><span aria-hidden="true">## </span>Get involved</h2>
+
+    <p>
+      FIR is built in the open. Source code, issues and early design work
+      happen on GitHub.
+    </p>
+
+    <p class="links">
+      <a href="https://github.com/fir-project">[github]</a>
+    </p>
+  </section>
 
 </main>
 
+
 <footer>
   <div class="wrap">
-    <p>Copyright &copy; 2026 firproject contributors. FIR is free software,
-    licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU
-    General Public License v3 or later</a>.</p>
-    <p>This site is plain HTML — no JavaScript, no cookies, no trackers.</p>
-    <!-- Keep only if FIR ends up using the Linux kernel:
-    <p>Linux&reg; is a registered trademark of Linus Torvalds.</p>
-    -->
+    <p>
+      Copyright &copy; 2026 firproject contributors.
+      FIR is free software, licensed under the
+      <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+        GNU General Public License v3 or later
+      </a>.
+    </p>
+
+    <p>
+      This site is plain HTML and CSS.
+      No JavaScript. No cookies. No trackers.
+    </p>
   </div>
 </footer>
 
