@@ -1,5 +1,5 @@
 :root {
-  color-scheme: dark light;
+  color-scheme: dark;
 
   --bg: #10120f;
   --surface: #171a16;
@@ -262,9 +262,7 @@ h3 {
 
 table {
   width: 100%;
-
   border-collapse: collapse;
-
   margin: 1rem 0;
 }
 
@@ -466,34 +464,6 @@ footer a {
 
 footer a:hover {
   color: var(--green);
-}
-
-/* ---- light mode ---- */
-/*
- * Dark mode is the default.
- * Users who prefer light mode still get a proper light theme.
- */
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #fafaf7;
-    --surface: #f1f2ed;
-    --surface-2: #e9ebe5;
-
-    --fg: #171914;
-    --muted: #5c6158;
-
-    --green: #17643b;
-    --green-bright: #0e542f;
-
-    --line: #aeb3a9;
-    --line-soft: #d3d6cf;
-
-    --code-bg: #f0f1ed;
-    --th-bg: #e7e9e3;
-
-    --warning: #876b20;
-  }
 }
 
 /* ---- responsive ---- */
