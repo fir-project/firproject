@@ -153,6 +153,11 @@ nav a:hover {
   overflow-x: auto;
 }
 
+.ascii.logo {
+  color: var(--fg);
+  font-size: 17px;
+}
+
 .eyebrow {
   color: var(--muted);
 
