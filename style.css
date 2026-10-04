@@ -1,205 +1,529 @@
-/* FIR — firproject.org
-   Plain HTML + CSS.
-   Deliberately: no gradients, no rounded corners, no shadows,
-   no transitions, no JavaScript. Monospace, left-aligned, white. */
-
 :root {
-  --fg: #111111;
-  --muted: #555555;
-  --green: #14663a;
-  --line: #999999;
-  --line-soft: #cccccc;
-  --code-bg: #f4f4f4;
-  --th-bg: #efefef;
+  color-scheme: dark light;
+
+  --bg: #10120f;
+  --surface: #171a16;
+  --surface-2: #1d211c;
+
+  --fg: #deded8;
+  --muted: #8c9088;
+
+  --green: #73b88c;
+  --green-bright: #8ed0a3;
+
+  --line: #363b34;
+  --line-soft: #292e28;
+
+  --code-bg: #151815;
+  --th-bg: #1b1f1a;
+
+  --warning: #d5b56a;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: var(--bg);
   color: var(--fg);
-  font-family: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono",
-               Menlo, Consolas, "Liberation Mono", monospace;
+
+  font-family:
+    ui-monospace,
+    "SF Mono",
+    "Cascadia Code",
+    "JetBrains Mono",
+    Menlo,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
   font-size: 15px;
   line-height: 1.7;
 }
 
-a { color: var(--green); }
-a:hover { color: var(--fg); }
-a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+a {
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--green-bright);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+code {
+  color: var(--green-bright);
+  font-size: 0.95em;
+}
 
 .wrap {
-  max-width: 46rem;
+  max-width: 48rem;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 /* ---- header ---- */
 
-header { border-bottom: 1px solid var(--line); }
+header {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
 
 .bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
+
   flex-wrap: wrap;
+
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+
   color: var(--fg);
   font-weight: bold;
   text-decoration: none;
 }
-.brand:hover { color: var(--green); }
+
+.brand:hover {
+  color: var(--green-bright);
+}
+
 .brand svg {
   width: 13px;
   height: 17px;
+
   fill: var(--green);
+
   vertical-align: -3px;
-  margin-right: 2px;
+  margin-right: 3px;
 }
 
 nav ul {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.65rem;
+
   list-style: none;
   margin: 0;
   padding: 0;
+
   flex-wrap: wrap;
 }
+
 nav a {
-  color: var(--fg);
+  color: var(--muted);
   text-decoration: none;
 }
-nav a:hover { color: var(--green); }
 
-/* ---- hero / intro ---- */
+nav a:hover {
+  color: var(--green-bright);
+}
+
+/* ---- hero ---- */
+
+.hero {
+  padding-bottom: 1rem;
+}
 
 .ascii {
-  margin: 2rem 0 1.2rem;
+  margin: 2rem 0 1.4rem;
   padding: 0;
+
   border: 0;
   background: none;
+
+  color: var(--green);
+
   font-size: 15px;
   line-height: 1.15;
+
   overflow-x: auto;
 }
 
+.eyebrow {
+  color: var(--muted);
+
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+
+  margin-bottom: 0.35rem;
+}
+
 h1 {
-  font-size: 2.4rem;
-  line-height: 1.1;
-  letter-spacing: 0.08em;
-  margin: 0 0 0.2rem;
+  font-size: 2.7rem;
+  line-height: 1.05;
+
+  letter-spacing: 0.12em;
+
+  margin: 0 0 0.25rem;
 }
 
 .tagline {
   color: var(--green);
+
   font-weight: bold;
-  margin: 0 0 1.6rem;
+
+  margin: 0 0 1rem;
 }
 
-p { margin: 0 0 1.1rem; max-width: 74ch; }
+.lead {
+  color: var(--fg);
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+
+  max-width: 68ch;
+}
+
+/* ---- hero links ---- */
+
+.hero-links {
+  display: flex;
+  gap: 0.7rem;
+
+  flex-wrap: wrap;
+
+  margin-top: 1.4rem;
+}
+
+.button {
+  display: inline-block;
+
+  padding: 0.35rem 0.7rem;
+
+  border: 1px solid var(--green);
+
+  color: var(--green);
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--green);
+  color: var(--bg);
+}
+
+.button.secondary {
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.button.secondary:hover {
+  border-color: var(--green);
+  color: var(--green);
+  background: transparent;
+}
+
+/* ---- general text ---- */
+
+p {
+  max-width: 74ch;
+  margin: 0 0 1.1rem;
+}
 
 /* ---- headings ---- */
 
 h2 {
   font-size: 1.15rem;
-  margin: 2.6rem 0 1rem;
+  line-height: 1.4;
+
+  margin: 2.8rem 0 1rem;
 }
 
 h3 {
   font-size: 1rem;
+  line-height: 1.4;
+
   margin: 1.6rem 0 0.4rem;
 }
 
-/* ---- table ---- */
+/* ---- tables ---- */
 
-.tbl-wrap { overflow-x: auto; }
+.tbl-wrap {
+  overflow-x: auto;
+}
 
 table {
-  border-collapse: collapse;
   width: 100%;
+
+  border-collapse: collapse;
+
   margin: 1rem 0;
 }
 
-th, td {
+th,
+td {
   border: 1px solid var(--line-soft);
-  padding: 0.3rem 0.7rem;
+
+  padding: 0.4rem 0.7rem;
+
   text-align: left;
   vertical-align: top;
 }
 
 th {
-  background: var(--th-bg);
-  font-weight: bold;
   width: 13rem;
+
+  background: var(--th-bg);
+
+  color: var(--fg);
+
+  font-weight: bold;
   white-space: nowrap;
+}
+
+td {
+  color: var(--muted);
+}
+
+td code,
+th code {
+  color: var(--green-bright);
+}
+
+.status {
+  color: var(--warning);
+  white-space: nowrap;
+}
+
+/* ---- principles ---- */
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 0.7rem;
+
+  margin: 1rem 0;
+}
+
+.principles article {
+  padding: 0.9rem 1rem;
+
+  border: 1px solid var(--line);
+
+  background: var(--surface);
+}
+
+.principles h3 {
+  margin: 0 0 0.45rem;
+}
+
+.principles h3 span {
+  color: var(--green);
+}
+
+.principles p {
+  color: var(--muted);
+
+  margin: 0;
 }
 
 /* ---- code / pre ---- */
 
 pre {
-  background: var(--code-bg);
-  border: 1px solid var(--line-soft);
-  padding: 0.8rem 1rem;
-  overflow-x: auto;
-  line-height: 1.5;
   margin: 1rem 0;
+
+  padding: 0.85rem 1rem;
+
+  background: var(--code-bg);
+
+  border: 1px solid var(--line);
+
+  color: var(--fg);
+
+  overflow-x: auto;
+
+  line-height: 1.5;
 }
 
-/* ascii art must not look like a code block */
+pre code {
+  color: inherit;
+}
+
+/* ASCII art is not a code block */
+
 pre.ascii {
   background: none;
   border: 0;
+
   padding: 0;
+
+  color: var(--green);
+
   line-height: 1.15;
+}
+
+/* ---- status notice ---- */
+
+.notice {
+  margin: 1rem 0 1.5rem;
+
+  padding: 0.8rem 1rem;
+
+  border-left: 3px solid var(--warning);
+
+  background: var(--surface);
+}
+
+.notice strong {
+  color: var(--warning);
+}
+
+.notice p {
+  color: var(--muted);
+
+  margin: 0.25rem 0 0;
 }
 
 /* ---- news ---- */
 
 .news {
   list-style: none;
+
   margin: 1rem 0;
   padding: 0;
 }
 
-.news li { margin-bottom: 1.4rem; }
+.news li {
+  margin-bottom: 1.5rem;
+
+  padding-left: 1rem;
+
+  border-left: 1px solid var(--line);
+}
 
 .news time {
   color: var(--muted);
-  font-size: 0.85rem;
+
+  font-size: 0.8rem;
 }
 
-.news h3 { margin: 0.1rem 0 0.3rem; }
+.news h3 {
+  margin: 0.1rem 0 0.3rem;
+}
 
-.news p { margin: 0; }
+.news p {
+  color: var(--muted);
+
+  margin: 0;
+}
 
 /* ---- links row ---- */
 
-.links { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-.links a { text-decoration: none; }
-.links a:hover { text-decoration: underline; }
+.links {
+  display: flex;
+  gap: 0.9rem;
+
+  flex-wrap: wrap;
+}
+
+.links a {
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
 
 /* ---- footer ---- */
 
 footer {
   border-top: 1px solid var(--line);
-  margin-top: 3rem;
-  padding: 1.2rem 0 2.5rem;
+
+  margin-top: 3.5rem;
+  padding: 1.3rem 0 2.7rem;
+
   color: var(--muted);
-  font-size: 0.85rem;
+
+  font-size: 0.8rem;
 }
-footer p { margin: 0 0 0.5rem; }
+
+footer p {
+  margin: 0 0 0.5rem;
+}
+
+footer a {
+  color: var(--muted);
+}
+
+footer a:hover {
+  color: var(--green);
+}
+
+/* ---- light mode ---- */
+/*
+ * Dark mode is the default.
+ * Users who prefer light mode still get a proper light theme.
+ */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fafaf7;
+    --surface: #f1f2ed;
+    --surface-2: #e9ebe5;
+
+    --fg: #171914;
+    --muted: #5c6158;
+
+    --green: #17643b;
+    --green-bright: #0e542f;
+
+    --line: #aeb3a9;
+    --line-soft: #d3d6cf;
+
+    --code-bg: #f0f1ed;
+    --th-bg: #e7e9e3;
+
+    --warning: #876b20;
+  }
+}
 
 /* ---- responsive ---- */
 
 @media (max-width: 640px) {
-  .bar { flex-direction: column; align-items: flex-start; }
-  h1 { font-size: 1.8rem; }
-  .ascii { font-size: 11px; }
-  th { width: auto; white-space: normal; }
+  .bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .ascii {
+    font-size: 11px;
+  }
+
+  th {
+    width: auto;
+    white-space: normal;
+  }
+
+  .principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
