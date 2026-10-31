@@ -26,7 +26,20 @@
 </section>
 
 <main class="page">
-x
+<h1>News</h1>
+<p class="lede">Progress notes, newest first. There is not much to report yet.</p>
+
+<h2>2026-10-31 — Fir exists</h2>
+<p>No release today. Just a decision about what this project is, written down before it drifts.</p>
+<p>Fir is a minimal source-based distribution and a premade rice. The two halves are the point: the desktop is already configured when you boot it, and everything behind it is small enough to read. It is not trying to become a distribution people rely on. It is one person's machine, packaged well enough to hand over.</p>
+<p>What changed:</p>
+<ul>
+  <li>Cut the idea of a file that declares the whole system. It was starting to turn into a worse Nix, and Fir is supposed to be simple. Hand-editing files is the configuration.</li>
+  <li>The tagline is now <strong>Fir is real.</strong> It is a recursive acronym, which is the only kind of claim this project can currently back up.</li>
+  <li>The front page says plainly what Fir is not, so nobody arrives expecting an installer that is not there.</li>
+  <li>The package page is labelled as a mock-up rather than presented as a tree.</li>
+</ul>
+<p>Next is the build loop: a seed, a chroot, a package with a file manifest, an install, a base tarball. Until that loop closes there is nothing here worth downloading. When it closes, it gets announced on this page first.</p>
 </main>
 
 </body>

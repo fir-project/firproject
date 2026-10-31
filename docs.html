@@ -26,9 +26,51 @@
 </section>
 
 <main class="page">
-<h1>No Documentation yet...</h1>
-<h2>Please be patient as we develop fir!</h2>
-<h2>Also this site will probably change often so some things may not be where they used to!</h2>
+<h1>Documentation</h1>
+<p class="lede">Fir is early enough that most of this page describes intentions rather than behaviour. Anything marked <em>draft</em> is a proposal and will change.</p>
+
+<h2>The short version</h2>
+<ul>
+  <li><strong>Source-based.</strong> Packages are plain shell recipes, built in a clean chroot.</li>
+  <li><strong>Small.</strong> A curated tree, one version per package, no resolver and no use flags.</li>
+  <li><strong>Premade rice.</strong> The desktop ships configured. There is no configuration language between you and the files.</li>
+  <li><strong>OpenRC.</strong> No systemd, and no plans to acquire it.</li>
+</ul>
+
+<h2>How packages work <em>(draft)</em></h2>
+<p>A recipe is a shell script with a name, a version, a source and two functions. It builds into a staging directory, and the resulting package carries a manifest of the files it installed. That manifest is what makes removal and upgrades possible later.</p>
+<pre><code># main/base/fir-base/recipe
+name=fir-base
+version=1.0.0
+source=https://firproject.org/pkgs/fir-base-1.0.0.tar.gz
+sha256=...
+deps="openrc"
+
+build() {
+  ./configure --prefix=/usr
+  make
+}
+
+install() {
+  make DESTDIR="$DESTDIR" install
+}</code></pre>
+<p><code>fir-build</code> builds a recipe and produces a package. <code>fir-install</code> installs or removes one using the manifest. Both are drafts, the names may change.</p>
+
+<h2>Configuration <em>(draft)</em></h2>
+<p>There is nothing to declare. System files are edited by hand, the way they are on any small distribution, and the desktop is a set of dotfiles you can read. Fir does not try to derive the system from a description of it.</p>
+
+<h2>Status</h2>
+<table>
+  <tr><th>Piece</th><th>State</th></tr>
+  <tr><td>build tooling</td><td>not started</td></tr>
+  <tr><td>package tree</td><td>not started</td></tr>
+  <tr><td>installer and images</td><td>not started</td></tr>
+  <tr><td>firwm</td><td>in progress</td></tr>
+  <tr><td>this website</td><td>in progress</td></tr>
+</table>
+
+<h2>Reading</h2>
+<p>Fir borrows ideas from <a href="https://kisslinux.org/">KISS Linux</a>, <a href="https://crux.nu/">CRUX</a>, <a href="https://alpinelinux.org/">Alpine</a> and <a href="https://www.gentoo.org/">Gentoo</a>.</p>
 </main>
 
 </body>
